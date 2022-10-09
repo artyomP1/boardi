@@ -1,22 +1,24 @@
 <template>
   <div class="position-list-page">
     <h2>Positions List</h2>
-    <el-table class="pos-list-table" :data="tableData" style="width: 100%">
-      <el-table-column
-        v-for="(item, idx) in tableHeader"
-        :key="idx"
-        :prop="item"
-        :label="item"
-      >
-      </el-table-column>
-      <el-table-column label="Operations" width="100">
-        <template slot-scope="scope">
-          <el-button @click="edit(scope.$index)" type="text" size="small"
-            >Edit</el-button
-          >
-        </template>
-      </el-table-column>
-    </el-table>
+    <div class="list-table">
+      <el-table class="pos-list-table" :data="tableData" style="width: 100%">
+        <el-table-column
+          v-for="(item, idx) in tableHeader"
+          :key="idx"
+          :prop="item"
+          :label="item"
+        >
+        </el-table-column>
+        <el-table-column label="Operations" width="100">
+          <template slot-scope="scope">
+            <el-button @click="edit(scope.$index)" type="text" size="small"
+              >Edit</el-button
+            >
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 
@@ -61,10 +63,15 @@ export default {
 <style lang="scss" scoped>
 .position-list-page {
   padding: 20px;
-  .pos-list-table {
-    border: 1px solid #cdc6c6;
-    width: 90%;
+  .list-table {
+    overflow-x: scroll;
     max-height: calc(100vh - 200px);
+    border: 1px solid #cdc6c6;
+    .pos-list-table {
+      height: 100%;
+      max-width: 100%;
+      display: table;
+    }
   }
 }
 </style>
