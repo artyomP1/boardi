@@ -16,6 +16,7 @@
             ></label
           >
           <el-input
+            :disabled="input.inputName === 'id'"
             :required="input.mandatory === 'true'"
             :placeholder="input.inputName"
             :type="input.html_type"
@@ -23,7 +24,9 @@
           ></el-input>
         </div>
 
-        <el-button :disabled="disabled" @click="editPos" type="primary">Edit</el-button>
+        <el-button :disabled="disabled" @click="editPos" type="primary"
+          >Edit</el-button
+        >
       </form>
     </section>
   </div>

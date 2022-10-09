@@ -67,15 +67,9 @@ export default {
       let loadingInstance = Loading.service({ fullscreen: true });
       try {
         const data = {};
-        let location = "";
         this.formScheme.forEach((item) => {
-          let inputName = item.inputName.toLowerCase();
-          data[inputName.replace(/ /g, "_")] = item.value;
-          if (item.inputName === "location_of_position") {
-            location = item.value;
-          }
+          data[item.inputName] = item.value;
         });
-        data.location = location;
         const res = await this.savePos(data);
         this.$message({
           message: "Position saved successfully.",

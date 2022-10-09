@@ -16,6 +16,7 @@
             ></label
           >
           <el-input
+            :disabled="input.inputName === 'id'"
             :required="input.mandatory === 'true'"
             :placeholder="input.inputName"
             :type="input.html_type"
